@@ -1,0 +1,12 @@
+#header{
+    margin: 0;
+    height: 50px;
+    text-align: center;
+    
+}
+#instructions{
+    margin: 0;
+    float: right;
+    margin-right: 20px;
+    margin-top: 10px;
+}
