@@ -18,3 +18,11 @@
     position: fixed;
     width: 100%;
 }
+
+canvas
+{
+    box-shadow: 5px 5px 5px white;
+    margin: 100px;
+    margin-left: 25%;
+
+}
