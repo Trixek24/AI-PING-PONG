@@ -1,3 +1,8 @@
+/*eric's variables*/
+var right_x = 0;
+var right_y = 0;
+var right_score = 0;
+
 
 /*created by prashant shukla */
 
@@ -28,6 +33,18 @@ function setup(){
   video.size(700,600);
   video.hide()
   poseNet = ml5.poseNet(video, modelLoaded);
+  poseNet.on('pose', gotPoses);
+}
+
+function gotPoses(results)
+{
+  if (results.length > 0)
+  {
+    right_x = results[0].pose.rightWrist.x;
+    right_y = results[0].pose.rightWrist.y;
+    right_score = results[0].pose.keypoints[10].score;
+
+  }
 }
 
 function modelLoaded()
@@ -36,6 +53,13 @@ function modelLoaded()
 }
 
 function draw(){
+
+  if(right_score > 0.2)
+  {
+    fill("black");
+    stroke("red");
+    circle(right_x, right_y, 30)
+  }
 
   image(video,0,0,700,600)
  background(0); 
